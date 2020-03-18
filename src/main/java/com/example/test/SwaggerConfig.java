@@ -33,7 +33,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Crud srpingboot")
+                .title("Crud Springboot")
                 .description("Crud Doang")
                 .termsOfServiceUrl("")
                 .licenseUrl("github.com/nashihu")

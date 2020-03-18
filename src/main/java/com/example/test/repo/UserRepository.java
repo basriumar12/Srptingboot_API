@@ -1,6 +1,6 @@
-package com.example.test;
+package com.example.test.repo;
 
-import com.example.test.model.User;
+import com.example.test.model.ModelUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 */
 
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<ModelUser,Long> {
 	
 	// kali ini saya hanya akan menggunakan function bawaan dari JpaRepository jadi saya tidak akan menambahkan function disini
 

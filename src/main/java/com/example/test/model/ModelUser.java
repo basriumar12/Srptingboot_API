@@ -5,7 +5,7 @@ import javax.persistence.*;
 // menandakan bahwa class ini sebagai entity dan table dengan nama user.
 @Entity
 @Table(name = "user")
-public class User {
+public class ModelUser {
 
 	// membuat entity baru dengan nama id yang mempunyai properties sebagai primary dan auto_increment.
 	@Id

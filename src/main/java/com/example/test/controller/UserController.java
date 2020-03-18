@@ -1,7 +1,7 @@
 package com.example.test.controller;
 
-import com.example.test.UserRepository;
-import com.example.test.model.User;
+import com.example.test.model.ModelUser;
+import com.example.test.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,48 +19,48 @@ public class UserController {
 	
 	// mengambil semua data user
 	@GetMapping("/")
-	public List<User> all(){
+	public List<ModelUser> all(){
 		return userRepo.findAll();
 	}
 	
 	// membuat data baru
 	@PostMapping("/")
-	public User add(@RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName, @RequestParam("address") String address) {
+	public ModelUser add(@RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName, @RequestParam("address") String address) {
 		
-		User user = new User();
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
-		user.setAddress(address);
+		ModelUser modelUser = new ModelUser();
+		modelUser.setFirstName(firstName);
+		modelUser.setLastName(lastName);
+		modelUser.setAddress(address);
 		
-		return userRepo.save(user);
+		return userRepo.save(modelUser);
 	}
 	
 	// mengubah data
 	@PutMapping("/{id}")
-	public User update(@PathVariable("id") Long id, @RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName, @RequestParam("address") String address) {
+	public ModelUser update(@PathVariable("id") Long id, @RequestParam("first_name") String firstName, @RequestParam("last_name") String lastName, @RequestParam("address") String address) {
 		
-		User user = new User();
-		user.setId(id);
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
-		user.setAddress(address);
+		ModelUser modelUser = new ModelUser();
+		modelUser.setId(id);
+		modelUser.setFirstName(firstName);
+		modelUser.setLastName(lastName);
+		modelUser.setAddress(address);
 		
-		return userRepo.save(user);
+		return userRepo.save(modelUser);
 	}
 	
 	// menghapus data
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable("id") Long id) {
 		
-		User user = new User();
-		user.setId(id);
+		ModelUser modelUser = new ModelUser();
+		modelUser.setId(id);
 		
-		userRepo.delete(user);
+		userRepo.delete(modelUser);
 	}
 	
 	// mengambil satu data user
 	@GetMapping("/{id}")
-	public Optional<User> find(@PathVariable("id") Long id){
+	public Optional<ModelUser> find(@PathVariable("id") Long id){
 		return userRepo.findById(id);
 	}
 	
